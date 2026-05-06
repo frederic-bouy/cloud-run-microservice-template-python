@@ -25,13 +25,19 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello() -> str:
+
+    personne = request.args.get('nom')
+    
     # Use basic logging with custom fields
     logger.info(logField="custom-entry", arbitraryField="custom-entry")
 
     # https://cloud.google.com/run/docs/logging#correlate-logs
     logger.info("Child logger with trace Id.")
 
-    return "Hello World ! How are you this morning ?"
+    if personne :
+        return f"Bonjour {personne}, j'espere que tu vas bien ce matin"
+    else:
+        return "Hello World ! How are you this morning ?"
 
 
 def shutdown_handler(signal_int: int, frame: FrameType) -> None:
