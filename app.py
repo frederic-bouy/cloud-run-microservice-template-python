@@ -15,9 +15,7 @@
 import signal
 import sys
 from types import FrameType
-
-from flask import Flask
-
+from flask import Flask, request
 from utils.logging import logger
 
 app = Flask(__name__)
