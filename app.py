@@ -25,7 +25,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello() -> str:
-
+    # On récupère le paramètre 'nom' dans l'URL (ex: /?nom=Alice)
     personne = request.args.get('nom')
     
     # Use basic logging with custom fields
